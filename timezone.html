@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>TimeZone JSON Demo</title>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(document).on("click", "#actionButton", function(e) {
+                    e.preventDefault();
+
+                    $.ajax({
+                        type: "GET",
+                        url: "http://localhost/cf/team_cf_advance/api/TimeZone/TimeZone.cfc?method=getTimeZoneDataRemote&format=json",
+                        data: { lat: 53.7833, lng: -1.75 },
+                        complete: function(XMLHttpRequest, textStatus) {
+                            var jsonResponse = $.parseJSON(XMLHttpRequest.responseText);
+                            console.log(jsonResponse);
+                        }
+                    });
+                });                
+            });
+        </script>
+    </head>
+    <body>
+        <button id="actionButton">Get Time Zone</button>
+    </body>
+</html>
