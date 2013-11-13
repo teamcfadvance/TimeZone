@@ -1,4 +1,4 @@
-<cfset variables.TimeZoneObj = createObject("component", "TimeZone")>
+<cfset variables.TimeZoneObj = createObject("component", "com.TimeZone").init()>
 
 <cfset variables.result1 = variables.TimeZoneObj.getTimeZoneData(zone="Australia/Melbourne")>
 <cfdump var="#variables.result1#">
